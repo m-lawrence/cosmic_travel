@@ -1,0 +1,8 @@
+<h1><%= @scientist.name %></h1>
+
+<% @scientist.missions.each do |mission| %>
+    <p><Strong>Mission: </strong><%= mission.name %>, <strong>Planet: </strong><%= mission.planet.name %> </p>
+    <% end %>
+
+<br>
+<%= button_to "Delete Scientist", @scientist, method: :delete %>

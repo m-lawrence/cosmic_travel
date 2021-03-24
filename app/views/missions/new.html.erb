@@ -1,0 +1,17 @@
+<h1>Plan a Mission!</h1>
+
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+    <p><%= error %><p>
+    <% end %>
+<% end %>
+
+<%= form_for @mission do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :scientist_id %>
+    <%= f.collection_select :scientist_id, Scientist.all, :id, :name %>
+    <%= f.label :planet_id %>
+    <%= f.collection_select :planet_id, Planet.all, :id, :name %>
+    <%= f.submit %>
+    <% end %>
